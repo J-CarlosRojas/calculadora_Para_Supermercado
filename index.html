@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Calculadora de precios para el supermercado</title>
 </head>
 
 <body>
 
-    <img src="" alt="Decoración del fondo" class="decoracion_Fondo">
+    <img src="assets/img/background_decoration.png" alt="Decoración del fondo" class="decoracion_Fondo">
     <div class="calculadora">
 
         <div class="display_Resultado">
@@ -22,17 +24,26 @@
         <div class="display_Inputs">
             <div class="display_Input__Precio">
                 <input type="number">
-                <select name="" id="">$</select>                
+                <select name="" id="">
+                    <option value="precio">
+                        $
+                    </option>
+                </select>
             </div>
             <div class="display_Input__Peso">
                 <input type="number">
-                <select name="" id="">$</select>
+                <select name="" id="">
+                    <option value="gramos">
+                        gr
+                    </option>
+                    <option value="kilogramos">
+                        Kg
+                    </option>
+                </select>
             </div>
         </div>
-
         <div class="teclado">
             <button class="teclado_igual">=</button>
-
         </div>
 
     </div>
