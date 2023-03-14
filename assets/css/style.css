@@ -1,3 +1,35 @@
-.decoracion_Fondo{
+body {
+    background-color: #f4f4f4;
+}
+
+.display_Resultado {
+    display: flexbox;
+    width: 60vw;
+    height: 15vh;
+    border: 3px solid #F5F5F5;
+    border-radius: 10px;
+    margin: 5vh auto 0;
+}
+
+.display_Resultado__contenido {
+    
+}
+
+.decoracion_Fondo {
+    display: block; 
+    margin: 150px auto 0; 
+    height: auto;
     z-index: -1;
+}
+
+.cuerpo_calculadora {
+    z-index: 1;
+    position: absolute;
+    width: 75%;
+    height: 481px;
+    left: 12.5%;
+    top: 58px;
+    
+    background: rgba(232, 228, 228, 0.45);
+    border-radius: 10px;
 }
