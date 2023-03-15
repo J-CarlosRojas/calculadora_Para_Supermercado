@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap" rel="stylesheet">
+    <script src="assets/scripts/scripts.js" defer></script>
     <title>Calculadora de precios para el supermercado</title>
 </head>
 
@@ -18,13 +19,13 @@
 
         <div class="cuerpo_calculadora">
             <div class="display_Resultado">
-                <output placeholder="resultado" class="display_Resultado__contenido" >
+                <output placeholder="resultado" class="display_Resultado__contenido" id="salida">
                 </output>
             </div>
 
             <div class="display_Inputs">
                 <div class="display_Input__conjunto">
-                    <input type="number" class="display_Input__estilo display_Input__barra">
+                    <input type="number" id="precioProducto" class="display_Input__estilo display_Input__barra">
                     <select name="" id="" class="display_Input__estilo display_Input__select">
                         <option value="precio" id="precio">
                             $
@@ -32,7 +33,7 @@
                     </select>
                 </div>
                 <div class="display_Input__conjunto">
-                    <input type="number" class="display_Input__estilo display_Input__barra">
+                    <input type="number" class="display_Input__estilo display_Input__barra" id="pesoProducto">
                     <select name="" id="cantidad" class="display_Input__estilo display_Input__select">
                         <option value="gramos">
                             gr
@@ -44,7 +45,7 @@
                 </div>
             </div>
             <div class="teclado">
-                <button class="teclado_igual">=</button>
+                <button class="teclado_igual" id="botonIgual">=</button>
             </div>
         </div>
     </div>
