@@ -1,5 +1,6 @@
 
 let botonIgual = document.getElementById("botonIgual");
+let botonLimpiar = document.getElementById("botonLimpiar");
 let salida = document.getElementById("salida");
 
 function calcularPrecioPorKilo() {
@@ -15,7 +16,14 @@ function calcularPrecioPorKilo() {
     salida.innerHTML = precioPorKilo.toFixed(2);
   }
 
+  function limpiarInputs() {
+    let limpiarPeso = document.getElementById('pesoProducto');
+    let limpiarPrecio = document.getElementById('precioProducto');
+
+    limpiarPeso.value = " ";
+    limpiarPrecio.value = " ";
+
+  }
+
 botonIgual.addEventListener("click", calcularPrecioPorKilo);
-
-
-
+botonLimpiar.addEventListener("click", limpiarInputs);
