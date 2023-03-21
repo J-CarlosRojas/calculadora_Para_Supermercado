@@ -31,7 +31,7 @@ function calcularPrecioPorKilo() {
   let pesoProducto = parseFloat(document.getElementById("pesoProducto").value);
   let precioProducto = parseFloat(document.getElementById("precioProducto").value);
 
-  if (cantidad_seleccionada == "gramos") {
+  if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "mililitros" ) {
     let precioPorKilo = (precioProducto * 1000) / pesoProducto;
     salida.innerHTML = precioPorKilo.toFixed(2);
   } else {
