@@ -18,7 +18,7 @@ botonLimpiar.addEventListener("click", limpiarInputs);
 
 //controlador del selector
 let select_Cantidad = document.querySelector("#select_Cantidad");
-let cantidad_seleccionada = select_Cantidad.options[select_Cantidad.selectedIndex];
+let cantidad_seleccionada = select_Cantidad.options[select_Cantidad.selectedIndex].value;
 
 //detector  de cambios en el selector
 select_Cantidad.addEventListener("change", function () {
@@ -31,12 +31,11 @@ function calcularPrecioPorKilo() {
   let pesoProducto = parseFloat(document.getElementById("pesoProducto").value);
   let precioProducto = parseFloat(document.getElementById("precioProducto").value);
 
-  if (cantidad_seleccionada.value == "gramos") {
+  if (cantidad_seleccionada == "gramos") {
     let precioPorKilo = (precioProducto * 1000) / pesoProducto;
     salida.innerHTML = precioPorKilo.toFixed(2);
   } else {
-    pesoProducto *= 1000;
-    let precioPorKilo = (precioProducto * 1000) / pesoProducto;
+    let precioPorKilo = precioProducto / pesoProducto;
     salida.innerHTML = precioPorKilo.toFixed(2);
   }
 }
