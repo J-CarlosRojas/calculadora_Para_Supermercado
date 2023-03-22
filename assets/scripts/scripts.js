@@ -16,11 +16,21 @@ function limpiarInputs() {
 botonIgual.addEventListener("click", calcularPrecioPorKilo);
 botonLimpiar.addEventListener("click", limpiarInputs);
 
-//controlador del selector
+//controlador del selector de funciones
+let select_Funcion = document.querySelector("#select_Funcion");
+let funcion_seleccionada = select_Funcion.options[select_Funcion.selectedIndex].value;
+
+//detector  de cambios en el selector de funciones
+select_Funcion.addEventListener("change", function () {
+  funcion_seleccionada = select_Funcion.options[select_Funcion.selectedIndex].value;
+  console.log("Nueva función seleccionada: " + funcion_seleccionada);
+});
+
+//controlador del selector de cantidades
 let select_Cantidad = document.querySelector("#select_Cantidad");
 let cantidad_seleccionada = select_Cantidad.options[select_Cantidad.selectedIndex].value;
 
-//detector  de cambios en el selector
+//detector  de cambios en el selector de cantidades
 select_Cantidad.addEventListener("change", function () {
   cantidad_seleccionada = select_Cantidad.options[select_Cantidad.selectedIndex].value;
   console.log("Nueva cantidad seleccionada: " + cantidad_seleccionada);
