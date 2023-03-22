@@ -3,6 +3,7 @@ let botonIgual = document.getElementById("botonIgual");
 let botonLimpiar = document.getElementById("botonLimpiar");
 let salida = document.getElementById("salida");
 
+
 //Funcion para limpiar los imputs y la display de resultado.
 function limpiarInputs() {
   let limpiarPeso = document.getElementById('pesoProducto');
@@ -36,16 +37,27 @@ select_Cantidad.addEventListener("change", function () {
   console.log("Nueva cantidad seleccionada: " + cantidad_seleccionada);
 });
 
+let salida_Unidad;
+function cambio_Salida_Unidad() {
+  if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "kilogramos") {
+    salida_Unidad = "/kg."
+  } else {
+    salida_Unidad = "/lt."
+  }
+}
+
 //funcion para calcular precios
 function calcularPrecioPorKilo() {
   let pesoProducto = parseFloat(document.getElementById("pesoProducto").value);
   let precioProducto = parseFloat(document.getElementById("precioProducto").value);
 
-  if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "mililitros" ) {
+  if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "mililitros") {
+    cambio_Salida_Unidad()
     let precioPorKilo = (precioProducto * 1000) / pesoProducto;
-    salida.innerHTML = precioPorKilo.toFixed(2);
+    salida.innerHTML = "$ " + precioPorKilo.toFixed(2) + salida_Unidad;
   } else {
+    cambio_Salida_Unidad()
     let precioPorKilo = precioProducto / pesoProducto;
-    salida.innerHTML = precioPorKilo.toFixed(2);
+    salida.innerHTML = "$ " + precioPorKilo.toFixed(2) + salida_Unidad;
   }
 }
