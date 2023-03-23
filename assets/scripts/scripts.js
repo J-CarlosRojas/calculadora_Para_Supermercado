@@ -37,6 +37,7 @@ select_Cantidad.addEventListener("change", function () {
   console.log("Nueva cantidad seleccionada: " + cantidad_seleccionada);
 });
 
+//Controlador de unidades para el output de salida.
 let salida_Unidad;
 function cambio_Salida_Unidad() {
   if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "kilogramos") {
