@@ -49,16 +49,32 @@ function cambio_Salida_Unidad() {
 
 //funcion para calcular precios
 function calcularPrecioPorKilo() {
-  let pesoProducto = parseFloat(document.getElementById("pesoProducto").value);
-  let precioProducto = parseFloat(document.getElementById("precioProducto").value);
 
-  if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "mililitros") {
-    cambio_Salida_Unidad()
-    let precioPorKilo = (precioProducto * 1000) / pesoProducto;
-    salida.innerHTML = "$ " + precioPorKilo.toFixed(2) + salida_Unidad;
+  if (funcion_seleccionada == "precioPorKilo") {
+    //Funcion para precio por Kilo
+    let pesoProducto = parseFloat(document.getElementById("pesoProducto").value);
+    let precioProducto = parseFloat(document.getElementById("precioProducto").value);
+
+    if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "mililitros") {
+      cambio_Salida_Unidad()
+      let precioPorKilo = (precioProducto * 1000) / pesoProducto;
+      salida.innerHTML = "$ " + precioPorKilo.toFixed(2) + salida_Unidad;
+    } else {
+      cambio_Salida_Unidad()
+      let precioPorKilo = precioProducto / pesoProducto;
+      salida.innerHTML = "$ " + precioPorKilo.toFixed(2) + salida_Unidad;
+    }
   } else {
-    cambio_Salida_Unidad()
-    let precioPorKilo = precioProducto / pesoProducto;
-    salida.innerHTML = "$ " + precioPorKilo.toFixed(2) + salida_Unidad;
+    //Funcion para bácula.
+    let pesoProducto = parseFloat(document.getElementById("pesoProducto").value);
+    let precioProducto = parseFloat(document.getElementById("precioProducto").value);
+
+    if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "mililitros") {
+      let precioDeBascula = (precioProducto / 1000) * pesoProducto;
+      salida.innerHTML = "Pagarás $ " + precioDeBascula.toFixed(2);
+    } else {
+      let precioDeBascula = precioProducto * pesoProducto;
+      salida.innerHTML = "Pagarás $ " + precioDeBascula.toFixed(2);
+    }
   }
 }
