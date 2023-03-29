@@ -41,7 +41,7 @@ function cambio_Salida_Unidad() {
   if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "kilogramos") {
     return "/kg."
   } else {
-    return "/lt."
+    return "/L."
   }
 }
 
