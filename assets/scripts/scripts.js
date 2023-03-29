@@ -2,7 +2,8 @@
 let botonIgual = document.getElementById("botonIgual");
 let botonLimpiar = document.getElementById("botonLimpiar");
 let salida = document.getElementById("salida");
-
+let salidaHistorial = document.getElementById("historialResultados")
+let historial = new Array(3)
 
 //Funcion para limpiar los imputs y la display de resultado.
 function limpiarInputs() {
@@ -46,6 +47,19 @@ function cambio_Salida_Unidad() {
   }
 }
 
+//funcion para almacenar el historial
+function agregarHistorial() {
+  let nuevoElemento = document.getElementById("salida").value;
+  // Desplazar los elementos existentes hacia la derecha
+  for (var i = historial.length - 1; i > 0; i--) {
+    historial[i] = historial[i - 1];
+  }
+  // Agregar el nuevo elemento en la primera posición
+  historial[0] = nuevoElemento;
+  console.log(historial)
+}
+
+
 //funcion para calcular precios
 function calcularPrecioPorKilo() {
 
@@ -62,18 +76,22 @@ function calcularPrecioPorKilo() {
     if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "mililitros") {
       let precioPorKilo = (precioProducto * 1000) / pesoProducto;
       salida.innerHTML = "$ " + precioPorKilo.toFixed(2) + cambio_Salida_Unidad();
+      agregarHistorial();
     } else {
       let precioPorKilo = precioProducto / pesoProducto;
       salida.innerHTML = "$ " + precioPorKilo.toFixed(2) + cambio_Salida_Unidad();
+      agregarHistorial();
     }
   } else {
     //Funcion para báscula.
     if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "mililitros") {
       let precioDeBascula = (precioProducto / 1000) * pesoProducto;
       salida.innerHTML = "Pagarás $ " + precioDeBascula.toFixed(2);
+      agregarHistorial();
     } else {
       let precioDeBascula = precioProducto * pesoProducto;
       salida.innerHTML = "Pagarás $ " + precioDeBascula.toFixed(2);
+      agregarHistorial();
     }
   }
 }

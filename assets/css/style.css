@@ -107,3 +107,7 @@ body {
     border-radius: 17px;
     border-color: rgba(0, 0, 0, 0);
 }
+
+.historial{
+    font-size: .8rem;
+}
