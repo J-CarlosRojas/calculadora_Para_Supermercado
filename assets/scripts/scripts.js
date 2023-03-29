@@ -57,9 +57,16 @@ function agregarHistorial() {
   // Agregar el nuevo elemento en la primera posición
   historial[0] = nuevoElemento;
   console.log(historial)
+  //borrar ultimo elemento de la lista
+  let historialLista = document.getElementById("historial_lista");
+  if (historialLista.childElementCount >= 3) {
+    historialLista.removeChild(historialLista.lastElementChild);
+  }
+  //inserta el nuevo elemento a la lista de historial
+  let li = document.createElement("li");
+  li.textContent = nuevoElemento;
+  historialLista.insertBefore(li, historialLista.firstChild);
 }
-
-
 //funcion para calcular precios
 function calcularPrecioPorKilo() {
 
