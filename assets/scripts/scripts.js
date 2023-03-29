@@ -25,7 +25,6 @@ let funcion_seleccionada = select_Funcion.options[select_Funcion.selectedIndex].
 //detector  de cambios en el selector de funciones
 select_Funcion.addEventListener("change", function () {
   funcion_seleccionada = select_Funcion.options[select_Funcion.selectedIndex].value;
-  console.log("Nueva función seleccionada: " + funcion_seleccionada);
 });
 
 //controlador del selector de cantidades
@@ -35,7 +34,6 @@ let cantidad_seleccionada = select_Cantidad.options[select_Cantidad.selectedInde
 //detector  de cambios en el selector de cantidades
 select_Cantidad.addEventListener("change", function () {
   cantidad_seleccionada = select_Cantidad.options[select_Cantidad.selectedIndex].value;
-  console.log("Nueva cantidad seleccionada: " + cantidad_seleccionada);
 });
 
 //Controlador de unidades para el output de salida.
@@ -56,7 +54,7 @@ function agregarHistorial() {
   }
   // Agregar el nuevo elemento en la primera posición
   historial[0] = nuevoElemento;
-  console.log(historial)
+
   //borrar ultimo elemento de la lista
   let historialLista = document.getElementById("historial_lista");
   if (historialLista.childElementCount >= 3) {
