@@ -69,10 +69,8 @@ function agregarHistorial() {
 }
 //funcion para calcular precios
 function calcularPrecioPorKilo() {
-
   let pesoProducto = parseFloat(document.getElementById("pesoProducto").value);
   let precioProducto = parseFloat(document.getElementById("precioProducto").value);
-
   //Validador de datos.
   if (pesoProducto === "" || pesoProducto === null || precioProducto === "" || precioProducto === null || isNaN(pesoProducto) || isNaN(precioProducto)) {
     return;
