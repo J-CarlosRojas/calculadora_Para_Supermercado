@@ -38,37 +38,36 @@ select_Cantidad.addEventListener("change", function () {
 });
 
 //Controlador de unidades para el output de salida.
-let salida_Unidad;
 function cambio_Salida_Unidad() {
   if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "kilogramos") {
-    salida_Unidad = "/kg."
+    return "/kg."
   } else {
-    salida_Unidad = "/lt."
+    return "/lt."
   }
 }
 
 //funcion para calcular precios
 function calcularPrecioPorKilo() {
 
+  let pesoProducto = parseFloat(document.getElementById("pesoProducto").value);
+  let precioProducto = parseFloat(document.getElementById("precioProducto").value);
+
+  //Validador de datos.
+  if (pesoProducto === "" || pesoProducto === null || precioProducto === "" || precioProducto === null || isNaN(pesoProducto) || isNaN(precioProducto)) {
+    return;
+  }
+
   if (funcion_seleccionada == "precioPorKilo") {
     //Funcion para precio por Kilo
-    let pesoProducto = parseFloat(document.getElementById("pesoProducto").value);
-    let precioProducto = parseFloat(document.getElementById("precioProducto").value);
-
     if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "mililitros") {
-      cambio_Salida_Unidad()
       let precioPorKilo = (precioProducto * 1000) / pesoProducto;
-      salida.innerHTML = "$ " + precioPorKilo.toFixed(2) + salida_Unidad;
+      salida.innerHTML = "$ " + precioPorKilo.toFixed(2) + cambio_Salida_Unidad();
     } else {
-      cambio_Salida_Unidad()
       let precioPorKilo = precioProducto / pesoProducto;
-      salida.innerHTML = "$ " + precioPorKilo.toFixed(2) + salida_Unidad;
+      salida.innerHTML = "$ " + precioPorKilo.toFixed(2) + cambio_Salida_Unidad();
     }
   } else {
-    //Funcion para bácula.
-    let pesoProducto = parseFloat(document.getElementById("pesoProducto").value);
-    let precioProducto = parseFloat(document.getElementById("precioProducto").value);
-
+    //Funcion para báscula.
     if (cantidad_seleccionada == "gramos" || cantidad_seleccionada == "mililitros") {
       let precioDeBascula = (precioProducto / 1000) * pesoProducto;
       salida.innerHTML = "Pagarás $ " + precioDeBascula.toFixed(2);
